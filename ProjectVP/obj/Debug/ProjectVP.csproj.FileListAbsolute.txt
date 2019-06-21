@@ -9,3 +9,14 @@ D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.csproj.CoreCompi
 D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.exe
 D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.pdb
 D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.StartForm.resources
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\bin\Debug\ProjectVP.exe.config
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\bin\Debug\ProjectVP.exe
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\bin\Debug\ProjectVP.pdb
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csprojAssemblyReference.cache
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.Form1.resources
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.Properties.Resources.resources
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.StartForm.resources
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csproj.GenerateResource.cache
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csproj.CoreCompileInputs.cache
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.exe
+C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.pdb

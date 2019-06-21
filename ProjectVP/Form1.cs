@@ -23,12 +23,12 @@ namespace ProjectVP
         bool beseTuka1;
         bool beseTuka2;
         bool beseTuka3;
-        
+
         public Form1()
         {
             InitializeComponent();
             Initialization();
-            
+
         }
         public void Initialization()
         {
@@ -51,13 +51,13 @@ namespace ProjectVP
             timer.Start();
             timeElapsed = 0;
             max_time = 50;
-            
+
         }
         public void DifferentWords()
         {
             Random random = new Random();
-            int num=random.Next(0, 10);
-            switch(num)
+            int num = random.Next(0, 10);
+            switch (num)
             {
                 case 0: label1.Text = "C"; label2.Text = "A"; label3.Text = "R"; break;
                 case 1: label1.Text = "C"; label2.Text = "A"; label3.Text = "T"; break;
@@ -77,10 +77,10 @@ namespace ProjectVP
             Random random = new Random();
             int x = random.Next(20, 370);
             int y = random.Next(60, 400);
-            while(CheckColisionsForLabels(x, y))
+            while (CheckColisionsForLabels(x, y))
             {
-                 x = random.Next(20, 370);
-                 y = random.Next(60, 400);
+                x = random.Next(20, 370);
+                y = random.Next(60, 400);
                 CheckColisionsForLabels(x, y);
             }
             label1.Location = new Point(x, y);
@@ -105,12 +105,12 @@ namespace ProjectVP
         }
         public bool CheckColisionsForLabels(int x, int y)
         {
-       
+
             foreach (Rectangle r in rectangleDoc.rectangles)
             {
                 if ((x + label1.Width > r.X && y + label1.Height > r.Y && r.X + r.Width > x && r.Y + r.Height > y) == true)
                 {
-                    
+
                     return true;
                 }
 
@@ -119,30 +119,30 @@ namespace ProjectVP
         }
         public void timer_tick(object sender, EventArgs e)
         {
-           
-            if(max_time==timeElapsed)
+
+            if (max_time == timeElapsed)
             {
-                
+
                 timer.Stop();
-                lblTimer.Text = String.Format("Време: "+"{0:00}:{1:00}", (max_time - timeElapsed) / 60, (max_time - timeElapsed) % 60);
+                lblTimer.Text = String.Format("Време: " + "{0:00}:{1:00}", (max_time - timeElapsed) / 60, (max_time - timeElapsed) % 60);
                 DialogResult result;
-                result=MessageBox.Show("Ви истече времето. Обидете се повторно!", "Прашање", MessageBoxButtons.YesNo );
-                if(result==DialogResult.Yes)
+                result = MessageBox.Show("Ви истече времето. Обидете се повторно!", "Прашање", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
                     Initialization();
                 }
                 else
                 {
-                   
+
                 }
-                
+
             }
             else
             {
                 lblTimer.Text = String.Format("Време: " + "{0:00}:{1:00}", (max_time - timeElapsed) / 60, (max_time - timeElapsed) % 60);
                 max_time--;
             }
-            
+
 
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -158,13 +158,13 @@ namespace ProjectVP
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
-                if(squere.Y>60)
+                if (squere.Y > 60)
                 {
                     squere.Y -= 5;
                 }
-                
+
             }
             else if (e.KeyCode == Keys.Down)
             {
@@ -195,7 +195,7 @@ namespace ProjectVP
             if (isFinish() == true)
             {
                 string str = "";
-                switch(selectedNumber)
+                switch (selectedNumber)
                 {
                     case 0: str = "Од буквите може да се направи зборот CAR што на македонски значи АВТОМОБИЛ"; break;
                     case 1: str = "Од буквите може да се направи зборот CAT што на македонски значи МАЧКА"; break;
@@ -208,26 +208,37 @@ namespace ProjectVP
                     case 8: str = "Од буквите може да се направи зборот ART што на македонски значи уметност"; break;
                     case 9: str = "Од буквите може да се направи зборот JOB што на македонски значи РАБОТА"; break;
                 }
-                if(kolkuBukviSobereni==3)
+                if (kolkuBukviSobereni == 3)
                 {
                     MessageBox.Show("Честитки, го решивте лавиринтот!" + " " + str);
                     timer.Stop();
+                    if (MessageBox.Show("Продолжете на наредната игра.", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        MemoryGame form = new MemoryGame();
+                        form.Show();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Честитки, го решивте лавиринтот, но не ги собравте сите букви!" + " " + str);
                     timer.Stop();
+                    if (MessageBox.Show("Продолжете на наредната игра.", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        MemoryGame form = new MemoryGame();
+                        form.Show();
+                    }
                 }
-                
+
+
             }
             SquereCollisions();
             Invalidate(true);
-            
+
         }
 
         public bool isFinish()
         {
-            if(squere.X + squere.Width > lblGoal.Location.X && squere.Y + squere.Height > lblGoal.Location.Y && lblGoal.Location.X + lblGoal.Width > squere.X && lblGoal.Location.Y + lblGoal.Height > squere.Y)
+            if (squere.X + squere.Width > lblGoal.Location.X && squere.Y + squere.Height > lblGoal.Location.Y && lblGoal.Location.X + lblGoal.Width > squere.X && lblGoal.Location.Y + lblGoal.Height > squere.Y)
             {
                 return true;
             }
@@ -235,21 +246,21 @@ namespace ProjectVP
         }
         public void SquereCollisions()
         {
-           
-            if(squere.X + squere.Width > label1.Location.X && squere.Y + squere.Height > label1.Location.Y && label1.Location.X + label1.Width > squere.X && label1.Location.Y + label1.Height > squere.Y)
+
+            if (squere.X + squere.Width > label1.Location.X && squere.Y + squere.Height > label1.Location.Y && label1.Location.X + label1.Width > squere.X && label1.Location.Y + label1.Height > squere.Y)
             {
-                if(beseTuka1==false)
+                if (beseTuka1 == false)
                 {
                     kolkuBukviSobereni++;
                     beseTuka1 = true;
                 }
-                
+
                 sb.Append(label1.Text.ToString());
                 label1.Text = "";
-                
-                
+
+
             }
-            if(squere.X + squere.Width > label2.Location.X && squere.Y + squere.Height > label2.Location.Y && label2.Location.X + label2.Width > squere.X && label2.Location.Y + label2.Height > squere.Y)
+            if (squere.X + squere.Width > label2.Location.X && squere.Y + squere.Height > label2.Location.Y && label2.Location.X + label2.Width > squere.X && label2.Location.Y + label2.Height > squere.Y)
             {
                 if (beseTuka2 == false)
                 {
@@ -258,9 +269,9 @@ namespace ProjectVP
                 }
                 sb.Append(label2.Text.ToString());
                 label2.Text = "";
-               
+
             }
-            if(squere.X + squere.Width > label3.Location.X && squere.Y + squere.Height > label3.Location.Y && label3.Location.X + label3.Width > squere.X && label3.Location.Y + label3.Height > squere.Y)
+            if (squere.X + squere.Width > label3.Location.X && squere.Y + squere.Height > label3.Location.Y && label3.Location.X + label3.Width > squere.X && label3.Location.Y + label3.Height > squere.Y)
             {
                 if (beseTuka3 == false)
                 {
@@ -269,7 +280,7 @@ namespace ProjectVP
                 }
                 sb.Append(label3.Text.ToString());
                 label3.Text = "";
-             
+
             }
             toolStripStatusLabel1.Text = sb.ToString();
         }
