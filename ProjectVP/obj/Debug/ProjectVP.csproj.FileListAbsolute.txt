@@ -1,0 +1,11 @@
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\bin\Debug\ProjectVP.exe.config
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\bin\Debug\ProjectVP.exe
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\bin\Debug\ProjectVP.pdb
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.csprojAssemblyReference.cache
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.Form1.resources
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.Properties.Resources.resources
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.csproj.GenerateResource.cache
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.csproj.CoreCompileInputs.cache
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.exe
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.pdb
+D:\FINKI VI SEMESTAR\VP\ProjectVP\ProjectVP\obj\Debug\ProjectVP.StartForm.resources
