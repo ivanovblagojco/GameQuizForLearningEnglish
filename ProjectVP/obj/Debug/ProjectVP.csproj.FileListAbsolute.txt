@@ -20,3 +20,14 @@ C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debu
 C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csproj.CoreCompileInputs.cache
 C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.exe
 C:\Users\Dragana\Desktop\VP Proekt\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.pdb
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\bin\Debug\ProjectVP.exe.config
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\bin\Debug\ProjectVP.exe
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\bin\Debug\ProjectVP.pdb
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csprojAssemblyReference.cache
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.Form1.resources
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.Properties.Resources.resources
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.StartForm.resources
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csproj.GenerateResource.cache
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.exe
+C:\Users\Korisnik\Desktop\VP proekt 21.06\GameQuizForLearningEnglish\ProjectVP\obj\Debug\ProjectVP.pdb

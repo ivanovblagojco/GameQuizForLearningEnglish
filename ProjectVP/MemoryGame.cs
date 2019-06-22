@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,15 @@ namespace ProjectVP
         List<Bitmap> ListaSliki = new List<Bitmap>();
         int max = 1;
         Timer timer;
+        int sifra_za_prenos;
+        int poeni_lavirint;
 
-
-        public MemoryGame()
+        public MemoryGame(int sifra, int poeni)
         {
             InitializeComponent();
+
+            sifra_za_prenos = sifra;
+            poeni_lavirint = poeni;
             Prv = true;
 
             timer = new Timer();
@@ -46,10 +51,29 @@ namespace ProjectVP
             if (isFinished() == true)
             {
                 timer.Stop();
-                if (MessageBox.Show("Честитки. Продолжете на наредната игра.", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                int vk = poeni_lavirint + 10;
+                if (MessageBox.Show("Честитки. Продолжете на наредната игра. До сега имате освоено "+vk+ "поени", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    SlidingPuzzle form = new SlidingPuzzle();
+                    SlidingPuzzle form = new SlidingPuzzle(sifra_za_prenos, poeni_lavirint+10);
                     form.Show();
+                }
+                else
+                {
+                    SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
+                    string Query = "update players set Poeni='" + vk + "' where Id='" + sifra_za_prenos + "'";
+                    SqlCommand cmd = new SqlCommand(Query, conection);
+                    SqlDataReader reader;
+                    conection.Open();
+                    try
+                    {
+                        reader = cmd.ExecuteReader();
+                        while (reader.Read()) { }
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Неуспешен запис во база");
+                    }
                 }
             }
         }
@@ -148,12 +172,13 @@ namespace ProjectVP
 
                     if (Equals(bitmap, ListaRasporedeni[15]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx1.Visible = false;
                     }
                     else
                     {
-
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx1.Image = Properties.Resources.prasalnik;
 
@@ -178,12 +203,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[14]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx2.Visible = false;
                     }
                     else
                     {
-
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx2.Image = Properties.Resources.prasalnik;
 
@@ -208,11 +234,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[13]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx3.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx3.Image = Properties.Resources.prasalnik;
 
@@ -237,11 +265,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[12]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx4.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx4.Image = Properties.Resources.prasalnik;
 
@@ -266,11 +296,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[11]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx5.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx5.Image = Properties.Resources.prasalnik;
 
@@ -295,11 +327,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[10]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx6.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx6.Image = Properties.Resources.prasalnik;
 
@@ -324,11 +358,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[9]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx7.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx7.Image = Properties.Resources.prasalnik;
 
@@ -354,11 +390,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[8]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx8.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx8.Image = Properties.Resources.prasalnik;
 
@@ -383,11 +421,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[7]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx9.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx9.Image = Properties.Resources.prasalnik;
 
@@ -412,11 +452,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[6]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx10.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx10.Image = Properties.Resources.prasalnik;
 
@@ -441,11 +483,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[5]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx11.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx11.Image = Properties.Resources.prasalnik;
 
@@ -470,11 +514,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[4]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx12.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx12.Image = Properties.Resources.prasalnik;
 
@@ -499,11 +545,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[3]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx13.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx13.Image = Properties.Resources.prasalnik;
 
@@ -528,11 +576,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[2]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx14.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx14.Image = Properties.Resources.prasalnik;
 
@@ -557,11 +607,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[1]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx15.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx15.Image = Properties.Resources.prasalnik;
 
@@ -586,11 +638,13 @@ namespace ProjectVP
                 {
                     if (Equals(bitmap, ListaRasporedeni[0]))
                     {
+                        MessageBox.Show("Погодок");
                         p.Visible = false;
                         pbx16.Visible = false;
                     }
                     else
                     {
+                        MessageBox.Show("Промашување");
                         p.Image = Properties.Resources.prasalnik;
                         pbx16.Image = Properties.Resources.prasalnik;
 

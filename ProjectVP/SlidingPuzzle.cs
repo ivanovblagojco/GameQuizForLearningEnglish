@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace ProjectVP
         List<Bitmap> lstOriginalPicture1List = new List<Bitmap>();
         List<Bitmap> lstOriginalPicture2List = new List<Bitmap>();
         List<Bitmap> lstOriginalPicture3List = new List<Bitmap>();
+        int sifra_za_baza;
+        int poeni_za_baza;
 
-        public SlidingPuzzle()
+        public SlidingPuzzle(int sifra, int poeni)
         {
+            sifra_za_baza = sifra;
+            poeni_za_baza = poeni;
             InitializeComponent();
             lstOriginalPicture1List.AddRange(new Bitmap[] { Properties.Resources._1, Properties.Resources._2, Properties.Resources._3,
                Properties.Resources._4, Properties.Resources._5, Properties.Resources._6, Properties.Resources._7,
@@ -74,7 +79,9 @@ namespace ProjectVP
                 for (int i = 0; i < 9; i++)
                 {
                     Indexes.Remove((j = Indexes[r.Next(0, Indexes.Count)]));
+                    //Nekogash vo ovaa linija kod javuva greshka
                     ((PictureBox)gbPuzzle.Controls[i]).Image = lstOriginalPictureList[j];
+
                     if (j == 9)
                         inNullSliceIndex = i;
                 }
@@ -116,7 +123,7 @@ namespace ProjectVP
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            int poeni;
+            int poeni=0;
             if (temp == 1)
             {
                 if ((CheckWin() == true && tbAnswer.Text == "elephant") || (CheckWin() == true && tbAnswer.Text == "Elephant"))
@@ -135,6 +142,7 @@ namespace ProjectVP
                 {
                     poeni = 0;
                 }
+                
                 MessageBox.Show("Poeni: " + poeni + " /10");
             }
             if (temp == 2)
@@ -177,6 +185,23 @@ namespace ProjectVP
                 }
                 MessageBox.Show("Poeni: " + poeni + " /10");
             }
+            poeni_za_baza = poeni_za_baza + poeni;
+            SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
+            string Query = "update players set Poeni='" +poeni_za_baza + "' where Id='" + sifra_za_baza + "'";
+            SqlCommand cmd = new SqlCommand(Query, conection);
+            SqlDataReader reader;
+            conection.Open();
+            try
+            {
+                reader = cmd.ExecuteReader();
+                while (reader.Read()) { }
+
+            }
+            catch
+            {
+                MessageBox.Show("Неуспешен запис во база");
+            }
+            MessageBox.Show("Вашиот резултат е внесен во системот! Освоивте вкупно "+poeni_za_baza+ " поени");
 
         }
 

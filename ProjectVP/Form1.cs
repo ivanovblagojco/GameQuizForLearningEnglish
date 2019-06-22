@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,14 @@ namespace ProjectVP
         bool beseTuka1;
         bool beseTuka2;
         bool beseTuka3;
+        int sifra_za_prenos;
+        int poeni_lavirint;
 
-        public Form1()
+        public Form1(int sifra)
         {
             InitializeComponent();
             Initialization();
-
+            sifra_za_prenos = sifra;
         }
         public void Initialization()
         {
@@ -50,7 +53,8 @@ namespace ProjectVP
             timer.Tick += new EventHandler(timer_tick);
             timer.Start();
             timeElapsed = 0;
-            max_time = 50;
+            max_time = 90;
+            poeni_lavirint = 0;
 
         }
         public void DifferentWords()
@@ -211,21 +215,59 @@ namespace ProjectVP
                 if (kolkuBukviSobereni == 3)
                 {
                     MessageBox.Show("Честитки, го решивте лавиринтот!" + " " + str);
+                    poeni_lavirint = 10;
                     timer.Stop();
-                    if (MessageBox.Show("Продолжете на наредната игра.", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    if (MessageBox.Show("Продолжете на наредната игра.До сега имате освоено " + poeni_lavirint + " поени", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        MemoryGame form = new MemoryGame();
+                        MemoryGame form = new MemoryGame(sifra_za_prenos, poeni_lavirint);
                         form.Show();
+                    }
+                    else
+                    {
+                        SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
+                        string Query = "update players set Poeni='" + poeni_lavirint + "' where Id='" + sifra_za_prenos + "'";
+                        SqlCommand cmd = new SqlCommand(Query, conection);
+                        SqlDataReader reader;
+                        conection.Open();
+                        try
+                        {
+                            reader = cmd.ExecuteReader();
+                            while (reader.Read()) { }
+                            
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Неуспешен запис во база");
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show("Честитки, го решивте лавиринтот, но не ги собравте сите букви!" + " " + str);
+                    poeni_lavirint = 5;
                     timer.Stop();
-                    if (MessageBox.Show("Продолжете на наредната игра.", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    if (MessageBox.Show("Продолжете на наредната игра. До сега имате освоено "+poeni_lavirint+" поени", "Следна игра", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        MemoryGame form = new MemoryGame();
+                        MemoryGame form = new MemoryGame(sifra_za_prenos, poeni_lavirint);
                         form.Show();
+                    }
+                    else
+                    {
+                        SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
+                        string Query = "update players set Poeni='" + poeni_lavirint + "' where Id='" + sifra_za_prenos + "'";
+                        SqlCommand cmd = new SqlCommand(Query, conection);
+                        SqlDataReader reader;
+                        conection.Open();
+                        try
+                        {
+                            reader = cmd.ExecuteReader();
+                            while (reader.Read()) { }
+
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Неуспешен запис во база");
+                        }
                     }
                 }
 
