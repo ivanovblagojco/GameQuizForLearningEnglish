@@ -59,7 +59,7 @@ namespace ProjectVP
                 }
                 else
                 {
-                    SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
+                    /*SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
                     string Query = "update players set Poeni='" + vk + "' where Id='" + sifra_za_prenos + "'";
                     SqlCommand cmd = new SqlCommand(Query, conection);
                     SqlDataReader reader;
@@ -73,7 +73,7 @@ namespace ProjectVP
                     catch
                     {
                         MessageBox.Show("Неуспешен запис во база");
-                    }
+                    }*/
                 }
             }
         }

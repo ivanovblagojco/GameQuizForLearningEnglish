@@ -186,7 +186,7 @@ namespace ProjectVP
                 MessageBox.Show("Poeni: " + poeni + " /10");
             }
             poeni_za_baza = poeni_za_baza + poeni;
-            SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
+           /* SqlConnection conection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FINKI VI SEMESTAR\VP\ProjectVP\Database.mdf;Integrated Security=True;Connect Timeout=30");
             string Query = "update players set Poeni='" +poeni_za_baza + "' where Id='" + sifra_za_baza + "'";
             SqlCommand cmd = new SqlCommand(Query, conection);
             SqlDataReader reader;
@@ -200,7 +200,7 @@ namespace ProjectVP
             catch
             {
                 MessageBox.Show("Неуспешен запис во база");
-            }
+            }*/
             MessageBox.Show("Вашиот резултат е внесен во системот! Освоивте вкупно "+poeni_za_baza+ " поени");
 
         }
